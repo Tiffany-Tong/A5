@@ -18,6 +18,7 @@ const getData = async (url, params) => {
     console.log(error);
   }
 };
+
 const getMovies = async () => {
   const movie = (
     await getData("https://api.themoviedb.org/3/trending/movie/week?", {
@@ -35,7 +36,6 @@ const getMovies = async () => {
   }
   console.log(trendingMovies);
 };
-
 getMovies();
 
 const showModal = (id) => {
@@ -48,15 +48,15 @@ const showModal = (id) => {
 <template>
   <h1>Trending Movies!</h1>
   <div class="images">
-    <li class="image-container" v-for="movies in trendingMovies" :key="movies">
+    <div class="image-container" v-for="movies in trendingMovies">
       <img
-        class="moviePosters"
+        class="posters"
         :src="`https://image.tmdb.org/t/p/w500${movies.poster_path}`"
         :alt="movies.title"
         :props.movieId="`${movies.id}`"
         @click="showModal(movies.id)"
       />
-    </li>
+    </div>
   </div>
   <SiteModal :show="openModal" @close="openModal = false" :id="modalId" />
 </template>
@@ -65,23 +65,21 @@ const showModal = (id) => {
 .images {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
+  gap: 0.5rem;
 }
 .image-container {
   display: grid;
-  text-align: center;
   grid-column: span 1;
 }
 .image-container img {
   width: 100%;
   height: 100%;
 }
-.moviePosters {
+.posters {
   max-width: 100%;
   max-height: 100%;
 }
-.moviePosters:hover {
+.posters:hover {
   cursor: pointer;
-  transform: scale(1.04);
 }
 </style>

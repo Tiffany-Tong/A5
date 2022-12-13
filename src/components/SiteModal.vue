@@ -15,6 +15,7 @@ const getData = async (url, params) => {
     console.log(error);
   }
 };
+
 const getMovieData = async (movieId) => {
   const extraData = await getData(`https://api.themoviedb.org/3/movie/${movieId}`, {
     params: {
@@ -22,10 +23,12 @@ const getMovieData = async (movieId) => {
       append_to_response: "videos",
     },
   });
+
   console.log(movieId);
   movie.value = extraData.data;
   console.log(movie.value);
 };
+
 watchEffect(() => {
   getMovieData(props.id);
 });
@@ -40,9 +43,7 @@ watchEffect(() => {
           <h3 class="movie-title">{{ movie.title }}</h3>
           <p class="movie-overview">{{ movie.overview }}</p>
           <div class="movie-poster">
-            <a :href="`${movie.homepage}`" target="_blank">
-              <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" alt="" />
-            </a>
+            <img :src="`https://image.tmdb.org/t/p/w500${movie.poster_path}`" />
           </div>
           <div
             class="movie-trailer"
@@ -54,11 +55,9 @@ watchEffect(() => {
               :src="`https://www.youtube.com/embed/${
                 movie.videos.results.filter((video) => video.type === 'Trailer').at(0).key
               }`"
-              frameborder=""
               class="movie-trailer"
             ></iframe>
             <a
-              target="_blank"
               :href="`https://www.youtube.com/watch?v=${
                 movie.videos.results.filter((video) => video.type === 'Trailer').at(0).key
               }`"
@@ -84,7 +83,7 @@ watchEffect(() => {
   background: #00000099;
 }
 .modal-container {
-  background: black;
+  background: white;
   width: 85vw;
   height: 70vh;
   margin: auto;
@@ -132,7 +131,6 @@ watchEffect(() => {
 }
 .close-button {
   position: absolute;
-  text-align: right;
   background: none;
   cursor: pointer;
 }

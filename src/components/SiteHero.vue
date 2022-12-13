@@ -8,21 +8,22 @@
       <p2>Click the "Login" button on top to get started!</p2>
     </div>
     <img
-      src="https://external-preview.redd.it/Z-mdOCdgw53wluJKQdklW2-WwJEcd3zXoER3YNl-euI.jpg?auto=webp&s=9da2a0406734c547c7bc489c5fa20b091c7ee86c" />
+      src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-valentines-movies-1641325244.jpg?crop=0.920xw:0.986xh;0.0337xw,0&resize=980:*"
+    />
   </div>
 </template>
 
 <style scoped>
 img {
-  width: 60%;
-  margin-left: -150px;
+  width: 210%;
+  margin-left: -350px;
 }
 .image-container {
   position: relative;
   text-align: center;
   color: white;
   text-size-adjust: 100px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: x-large;
 }
 .text-container {

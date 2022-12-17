@@ -14,10 +14,10 @@ import SiteFooter from "../components/SiteFooter.vue";
 
 <style scoped>
 .home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start; */
   width: 100vw;
   height: 100vh;
 }

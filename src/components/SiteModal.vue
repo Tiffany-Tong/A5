@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watchEffect } from "vue";
+import { ref, watch } from "vue";
 import axios from "axios";
 
 const props = defineProps({
@@ -29,7 +29,7 @@ const getMovieData = async (movieId) => {
   console.log(movie.value);
 };
 
-watchEffect(() => {
+watch(() => {
   getMovieData(props.id);
 });
 </script>
@@ -55,6 +55,7 @@ watchEffect(() => {
               :src="`https://www.youtube.com/embed/${
                 movie.videos.results.filter((video) => video.type === 'Trailer').at(0).key
               }`"
+              frameborder=""
               class="movie-trailer"
             ></iframe>
             <a
@@ -124,17 +125,17 @@ watchEffect(() => {
   width: 90%;
   height: 90%;
 }
-
 .movie-release-date {
   grid-column: span 2;
   text-align: center;
 }
 .close-button {
   position: absolute;
+  right: 0.5px;
   background: none;
   cursor: pointer;
+  background: white;
 }
-
 .close-button:hover {
   background: white;
 }

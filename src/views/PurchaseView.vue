@@ -21,7 +21,7 @@ const getData = async (url, params) => {
 
 const getMovies = async () => {
   const movie = (
-    await getData("https://api.themoviedb.org/3/trending/movie/week?", {
+    await getData("https://api.themoviedb.org/3/trending/movie/week", {
       params: {
         api_key: "c6b2390c3ab4bfbd0e064d952df483c9",
         append_to_response: "videos",
@@ -50,7 +50,7 @@ const showModal = (id) => {
   <div class="images">
     <div class="image-container" v-for="movies in trendingMovies">
       <img
-        class="posters"
+        class="moviePosters"
         :src="`https://image.tmdb.org/t/p/w500${movies.poster_path}`"
         :alt="movies.title"
         :props.movieId="`${movies.id}`"
@@ -75,11 +75,11 @@ const showModal = (id) => {
   width: 100%;
   height: 100%;
 }
-.posters {
-  max-width: 100%;
-  max-height: 100%;
+.moviePosters {
+  width: 100%;
+  height: 100%;
 }
-.posters:hover {
+.moviePosters:hover {
   cursor: pointer;
 }
 </style>
